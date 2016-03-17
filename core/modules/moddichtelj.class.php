@@ -87,7 +87,10 @@ class moddichtelj extends DolibarrModules
 		//							'dir' => array('output' => 'othermodulename'),      // To force the default directories names
 		//							'workflow' => array('WORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2'=>array('enabled'=>'! empty($conf->module1->enabled) && ! empty($conf->module2->enabled)', 'picto'=>'yourpicto@dichtelj')) // Set here all workflow context managed by module
 		//                        );
-		$this->module_parts = array();
+		$this->module_parts = array(
+			'triggers'=>1
+			,'hooks'=>array('usercard')
+		);
 
 		// Data directories to create when module is enabled.
 		// Example: this->dirs = array("/dichtelj/temp");
@@ -137,7 +140,8 @@ class moddichtelj extends DolibarrModules
 		// 'thirdparty'       to add a tab in third party view
 		// 'user'             to add a tab in user view
 		$this->tabs = array(
-			'user:+dichtelj::LikeTabTitle:like@dichtelj:$user->rights->dichtelj->read:/dichtelj/dichtelj.php?id=__ID__',  	// To add a new tab identified by code tabname1'
+			'user:+dichtelj:dichteljTabTitle:dichtelj@dichtelj:$user->rights->dichtelj->read:/dichtelj/dichtelj.php?id=__ID__',  	// To add a new tab identified by code tabname1'
+		//	'thirdparty:+kiwi:KiwiPowa:kiwi@kiwi:$user->rights->kiwi->read:/kiwi/kiwi.php?id=__ID__'
 		);
 
         // Dictionaries
@@ -194,7 +198,7 @@ class moddichtelj extends DolibarrModules
 		//							'titre'=>'dichtelj top menu',
 		//							'mainmenu'=>'dichtelj',
 		//							'leftmenu'=>'dichtelj',
-		//							'url'=>'/dichtelj/pagetop.php',
+		//							'url'=>'/dichtle20elj/pagetop.php',
 		//							'langs'=>'mylangfile@dichtelj',	        // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 		//							'position'=>100,
 		//							'enabled'=>'$conf->dichtelj->enabled',	// Define condition to show or hide menu entry. Use '$conf->dichtelj->enabled' if entry must be visible if module is enabled.
