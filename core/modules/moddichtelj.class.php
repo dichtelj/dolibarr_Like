@@ -136,7 +136,9 @@ class moddichtelj extends DolibarrModules
 		// 'stock'            to add a tab in stock view
 		// 'thirdparty'       to add a tab in third party view
 		// 'user'             to add a tab in user view
-        $this->tabs = array();
+		$this->tabs = array(
+			'user:+dichtelj::LikeTabTitle:like@dichtelj:$user->rights->dichtelj->read:/dichtelj/dichtelj.php?id=__ID__',  	// To add a new tab identified by code tabname1'
+		);
 
         // Dictionaries
 	    if (! isset($conf->dichtelj->enabled))
@@ -173,12 +175,11 @@ class moddichtelj extends DolibarrModules
 
 		// Add here list of permission defined by an id, a label, a boolean and two constant strings.
 		// Example:
-		// $this->rights[$r][0] = $this->numero . $r;	// Permission id (must not be already used)
-		// $this->rights[$r][1] = 'Permision label';	// Permission label
-		// $this->rights[$r][3] = 1; 					// Permission by default for new user (0/1)
-		// $this->rights[$r][4] = 'level1';				// In php code, permission will be checked by test if ($user->rights->permkey->level1->level2)
-		// $this->rights[$r][5] = 'level2';				// In php code, permission will be checked by test if ($user->rights->permkey->level1->level2)
-		// $r++;
+		 $this->rights[$r][0] = $this->numero . $r;	// Permission id (must not be already used)
+		 $this->rights[$r][1] = 'Read';	// Permission label
+		 $this->rights[$r][3] = 1; 					// Permission by default for new user (0/1)
+		 $this->rights[$r][4] = 'read';				// In php code, permission will be checked by test if ($user->rights->permkey->level1->level2)
+		 $r++;
 
 
 		// Main menu entries
