@@ -9,4 +9,6 @@ class TDichtelj extends TobjetStd{
  	  
 -		$this->add_champs('fk_user1,fk_user2',array('type'=>'char', 'index'=>true));
  		$this->add_champs('affinité','type=boolean;');
+ 		$this->start();
+ 		
 }

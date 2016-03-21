@@ -11,13 +11,12 @@ if(!defined('INC_FROM_DOLIBARR')) {
 }
 
 
-/* uncomment
 
 
-dol_include_once('/mymodule/class/xxx.class.php');
+dol_include_once('/dichtelj/class/dichtelj.class.php');
 
 $PDOdb=new TPDOdb;
 
-$o=new TXXX($db);
+$o=new TDichtelj($db);
 $o->init_db_by_vars($PDOdb);
-*/
+

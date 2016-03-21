@@ -3,6 +3,7 @@
 	require 'config.php';
 	dol_include_once('/core/lib/user.lib.php');
 	dol_include_once('/user/class/user.class.php');
+	dol_include_once('/dichtelj/class/dichtelj.class.php');
 
 	$fk_user = GETPOST('id');
 
@@ -31,7 +32,14 @@ function _card(&$object)
 
 	//echo $form->select_users($selected,$htmlname=,$show_empty,$exclude,$disabled,$include,$enableonly,$force_entity);
 
+	$pdo = new TPDOdb;
+	$like = new TDichtelj;
 	dol_fiche_end();
+
+	$like->fk_user1 = $object->id;
+	$like->fk_user2 = 2;
+	$like->save($pdo);
+
 
 	llxFooter();
 }
